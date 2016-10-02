@@ -1,0 +1,12 @@
+{{#click-outside action=(action "focusOut")}}
+    {{input disabled=disabled value=inputText class=className placeholder=placeholder focus-in="focusIn"}}
+    <div {{bindAttr class=":model-select-results hidden"}}>
+        {{#each models as |item|}}
+            <div class="model-select-item">
+                {{yield item (action "selected")}}
+            </div>
+        {{else}}
+            <div class="model-select-item">{{t 'labels.records_not_founded'}}</div>
+        {{/each}}
+    </div>
+{{/click-outside}}
